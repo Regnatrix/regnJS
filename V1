@@ -1,0 +1,114 @@
+1. Hvað er null og undefined?
+	null og undefined eru sérstök "value" sem innihalda engar upplýsingar/óskilgreint value.
+2. Hvað gerir 'use strict' í JavaScript kóða?
+	use strict er sett efst í kóða til þess að skilgreina að allur kóðinn sé "strict" eftir reglum svo javascript readerinn viti hvernig kóðinn er og leiðrétti rétt ef þörf er á.
+3. Hver er munurinn á let og var?
+	let leyfir þér að declare-a variable sem eru limited í skópi
+	var er meira keyword sem definar variable globally sem gerir ekki grein fyrir block scope.
+4. Skilgreindu fall á þrjá mismunandi vegu með kóðasýnidæmi.
+	Fall = function 
+	function add(a, b){
+		return a + b;
+		}
+	í þessu falli er tekið gildin fyrir a og b og summað þeim saman. Return skilar svo summunni til notanda
+	gildin eru skilgreind með:
+	let x = add(2, 3); 
+	// add fallið tekur þá inn 2 = a og 3 = b og skilar út svarinu 5
+
+	funtion margfoldun(t1, t2){
+		return t1 * t2;
+		}
+	þetta fall tekur inn gildi sem eru sett fyrir t1 og t2 og margfaldar þeim saman og skilar út útkomunni
+	
+	function kvedja () {
+		console.log("Hallo !");
+	}
+	þetta fall skrifar út kvedju
+	
+		
+
+5. Útskýrðu hvað eftirfarandi kóði gerir, hvað gera svigarnir?
+ (function() { alert('Hello World'); })();
+ kóðinn skrifar út Hello World með alert, en alert var upprunalega notað til að skila viðvörun til notanda
+ slaufu sviginn skilgreinir hvað er inní fallinu
+ sviginn utanum fallið í heildinni setur fallið saman inn í "immediatlely invoked function expression" sem hjálpar að verja skópið
+ 
+ 
+6. Í hvaða röð er kóðinn keyrður í raun eftir að JS þýðandinn (e. interpreter) er búinn að fá
+hann til sín? Raðaðu kóðanum rétt fyrir JS þýðandanum. Afhverju er útkoman 8? Útskýrðu.
+function foo(){
+function bar() {
+return 3;
+}
+return bar();
+function bar() {
+return 8;
+}
+alert(foo());
+
+javascript þýðandinn dregur functionin efst
+8 er skilgreint á eftir 3 og skrifast því yfir 3, því skilar fallið seinni tölunni.
+
+function foo(){
+    //Hoisted before
+    function bar() {
+        return 3;
+    }
+    // Hoisted after
+    function bar() {
+        return 8;
+    }
+    return bar();
+}
+alert(foo());
+
+
+7. Hver er munurinn á for, for-in og for-of lykkjum?
+for loopur eru notaðar til þess að keyra í gegnum ákveðinn part af kóða og vinna með gögnin, for-in og for-of loopur eru mjög svipaðar en gera mjög mismunandi hluti
+for-of loopur eru nýjar í es6, leita að property [Symbol.iterator] inní strúkturnum, sem definar hvernig það mun vera iterated
+for-in loopur iterate-a "enumerated properties" af objectinu
+
+//fann ekki nógu góða leið til að þýða "iterable" á íslensku
+
+
+8. forEach() Leystu lið 20 í Arrays á Udacity https://classroom.udacity.com/courses/ud803
+function third(num,index,array){
+    if (num % 3 ===0){
+        num +=100
+        array[index]= num;
+    }
+    console.log(num);
+}
+
+test.forEach(third);
+
+
+
+9. Hvað gerir .map() fylkjaaðferðin? Leystu lið 22 í Arrays á Udacity
+https://classroom.udacity.com/courses/ud803
+Með map() aðferðinni tökum við array og vinnum með hvert element úr því og skilum svo nýju array.
+
+var totals= bills.map(function(number,index,array) {
+                number+= number*0.15;
+               return Number((number.toFixed(2)));
+            });
+
+console.log(totals);
+
+
+10. Leystu lið 25 í Arrays í lesson 6 á Udacity https://classroom.udacity.com/courses/ud803
+for(var r=0;r < numbers.length; r ++){
+    for (var c=0; c< numbers[r].length;c++){
+        if (numbers[r][c] % 2 === 0) {
+            numbers[r][c]="even";
+            console.log(numbers[r][c]);
+        }
+        else {
+            numbers[r][c]="odd";
+            console.log(numbers[r][c]);
+        }
+        }
+    }
+console.log(numbers);
+
+
