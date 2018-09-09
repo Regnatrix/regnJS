@@ -1,0 +1,92 @@
+Verkefni 2 - Objects (5%) JavaScript
+Sandra Dögg Kristmundsdóttir
+
+1. Búðu til object með upplýsingar um þig; nafn, heimasími og gsm. Prentaðu út með
+console.log() síðara símanúmerið (0.5%)
+let obj = {
+   nafn: "Sandra",
+   heimaS: "555-5555",
+   gsm: "888-8888"
+}
+
+console.log(obj.gsm);
+
+------------------
+2. Prentaðu út með console.log() Nonni. (0.5%)
+let family = {
+"parents":
+{
+"fathers": [{"name":"Jakob"},{"name":"Nonni"}],
+"mothers":[{"name":"Rakel"},{"name":"Sara"}]
+}
+ };
+ console.log(family.parents.fathers[1].name);
+ 
+ 
+ 
+3. Leystu lið 8 í Objects á Udacity https://classroom.udacity.com/courses/ud803 (1%)
+var breakfast = {
+  name: "The Lumberjack",
+  price: "$9.95",
+  ingredients: ["eggs", "sausage", "toast", "hashbrowns", "pancakes"]
+};
+
+console.log(breakfast.name, breakfast.price);
+
+
+4. Leystu lið 9 í Objects á Udacity https://classroom.udacity.com/courses/ud803(1%)
+var savingsAccount = {
+    balance: 1000,
+    interestRatePercent: 1,
+    deposit: function addMoney(amount) {
+        if (amount > 0) {
+            savingsAccount.balance += amount;
+        }
+    },
+    withdraw: function removeMoney(amount) {
+        var verifyBalance = savingsAccount.balance - amount;
+        if (amount > 0 && verifyBalance >= 0) {
+            savingsAccount.balance -= amount;
+        }
+    },
+    printAccountSummary: function SummaryAccountPrinting() {
+        return "Welcome!\nYour balance is currently $1000 and your interest rate is 1%.";
+    }
+};
+
+console.log(savingsAccount.printAccountSummary());
+
+5. Leystu lið 12 í Objects á Udacity https://classroom.udacity.com/courses/ud803(1%)
+var donuts = [
+    { type: "Jelly", cost: 1.22 },
+    { type: "Chocolate", cost: 2.45 },
+    { type: "Cider", cost: 1.59 },
+    { type: "Boston Cream", cost: 5.99 }
+];
+
+donuts.forEach(function(elem){
+    console.log(elem.type + " donuts cost $"+elem.cost+" each");
+
+})
+
+6. Búðu til og notaðu smið (e. function constructor) til að búa til tvær mismunandi pizzur
+(objects). Pizzan þarf að hafa; verð, stærð (large, medium, size) og álegg (ostur, skinka,
+pepperoni, ananas). Dæmi: Stór Magherita (ostur, oregano) kr. 2195. (1%)
+
+function Pizza(type,size,alegg,price) {
+    this.type = type;
+    this.size = size;
+    this.alegg = alegg;
+    this.price = price;
+    this.info = `${this.size} ${this.type} (${this.alegg}) kr ${this.price}.`;
+}
+
+let pizza1 = new Pizza("Magherita", "stor", "ostur, oregano", 2195);
+let pizza2 = new Pizza("Bahamas", "litil", "ostur, skinka, ananas", 1550);
+let pizza3 = new Pizza("PeppSvepp", "midlungs", "ostur, pepperoni, sveppir", 2065);
+let pizza4 = new Pizza("VeganParadis", "stor", "vegan ostur, oumph, sveppir, ananas, aioli dressing, hvítlauksolía", 2000);
+
+console.log(pizza1.info);
+console.log(pizza2.info);
+console.log(pizza3.info);
+console.log(pizza4.info);
