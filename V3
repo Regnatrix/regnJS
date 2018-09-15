@@ -72,3 +72,21 @@ let Rebel2 = {
 
 //Gerðu það sama og í lið 3 en með notkun class (ES2015). 
 //Notaðu constructor, get, set, static, extends, super, mix-ins eftir þörfum.
+
+class geimflaug {
+    constructor(data){
+    this.name = 'moonbeam';
+    this.speed = 10;
+    this.life = 10;
+  }
+
+  get geimflaug.name() {
+    console.log('Geimflaugin heitir ', this.name + '.');
+  }
+  get speed() {
+    console.log("hradi: ", this.speed);
+  }
+  get life() {
+    console.log("lif: ", this.life);
+  }
+};
