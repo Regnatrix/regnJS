@@ -1,0 +1,74 @@
+Verkefni 3. Prototype (6%)
+Sandra Dögg Kristmundsdóttir
+12-15.09.2018
+1. Útskýrðu Prototype kerfið í JavaScript. 
+Hver er munurinn á því t.d. og ObjectOriented
+forritun (OOP) í öðrum málum eins og Python? (1%)
+Prototype-based forritun er í raun tegund (style) af objectOriented forritun.
+Prototype kerfið notar inheritance til þess að byggja objecta ofaná objecta, erfa hluti frá "parent" og endurnota gögn úr objecti.
+"Objects inherit directly from other objects through a prototype property."
+function er með prototype og objectar eru með proto.
+
+2. Útskýrðu eins vel og þú getur hvað gerist í kóðanum(1%)
+a. Þegar prototype er sleppt
+Þegar prototype er sleppt er functionið sett beint í smiðinn.
+
+
+b. Hvað gerir prototype í Book.prototype.getIsbn
+function Book(isbn) {
+ this.isbn = isbn;
+}
+// Book.prototype.getIsbn
+Book.getIsbn = function () {
+ return "Isbn is " + this.isbn;
+};
+Book.prototype.getIsbn setur functionið í object prototypeið.
+
+3. Classical Model (function constructor and prototype) (2%)
+
+function Geimflaugar(name, speed, life) {
+  this.name = name;
+  this.speed = speed;
+  this.life = life;
+}
+//Búðu til þrjá geimflauga objecta með function smið sem hafa mismunandi heiti.
+//Geimflaugarnar eiga einnig að hafa eigindin speed og life með upphafsgildinu 10.
+let millenniumFalcon = new Geimflaugar ("Millennium Falcon", 10, 10);
+let ussEnterprise = new Geimflaugar ("Uss Enterprise", 10, 10);
+let blackPearl = new Geimflaugar ("Black Pearl", 10, 10);
+
+// Gefðu geimflaugunum mismunandi speed gildi.
+millenniumFalcon.speed = 20;
+blackPearl.speed = 30;
+
+//Notaðu Prototype til að bæta við nýrri method fly sem hækkar gildiðspeed um 1. Þetta fá allar flaugarnar.
+Geimflaugar.prototype.fly = function() {
+  this.speed += 1
+};
+millenniumFalcon.fly();
+ussEnterprise.fly();
+blackPearl.fly();
+
+//Búðu til undirhóp flauga (2 flaugar) af einni geimflauginni sem þú bjóst tilað ofan. 
+//Gefðu þessum flaugum einhver eigindi og gildi. Þessar flaugar eiga að auki að hafa aðferðina setLife() sem hækkar life um 1.
+let Rebel1 = {
+  __proto__: millenniumFalcon,
+  name: "Chewbakka",
+  speed: 22,
+  life: 15,
+  setLife() {
+      setLife().life += 1;
+    }
+};
+let Rebel2 = {
+  __proto__: millenniumFalcon,
+  name: "Skywalker",
+  speed: 22,
+  life: 12,
+  setLife() {
+      setLife().life += 1;
+    }
+};
+
+//Gerðu það sama og í lið 3 en með notkun class (ES2015). 
+//Notaðu constructor, get, set, static, extends, super, mix-ins eftir þörfum.
